@@ -41,6 +41,8 @@ public class Driver {
             }
         }
 
+        driver.manage().window().maximize();
+
         return driver;
 
     }

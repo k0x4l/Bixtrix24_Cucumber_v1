@@ -6,9 +6,13 @@ import com.bitrix24.utilities.ConfigurationReader;
 import com.bitrix24.utilities.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class LoginStepDefinitions {
@@ -45,5 +49,37 @@ public class LoginStepDefinitions {
 
         Assert.assertEquals(expectedTitle,actualTitle);
 
+    }
+
+    @Then("User clicks to Message")
+    public void userClicksToMessage() {
+        wait.until(ExpectedConditions.visibilityOf(bixtrix24StreamPage.messageButton));
+        bixtrix24StreamPage.messageButton.click();
+
+    }
+
+    @Given("User should click upload files icon")
+    public void userShouldClickUploadFilesIcon() {
+        wait.until(ExpectedConditions.visibilityOf(bixtrix24StreamPage.uploadIcon));
+        bixtrix24StreamPage.uploadIcon.click();
+    }
+
+    @Then("Select a file from local disk")
+    public void selectAFileFromLocalDisk() {
+
+/*
+
+        wait.until(ExpectedConditions.visibilityOf(bixtrix24StreamPage.UploadFilesAndImages));
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].style.left='0'", bixtrix24StreamPage.UploadFilesAndImages);
+        bixtrix24StreamPage.UploadFilesAndImages.sendKeys("/Users/__{{ KoxaL }}__/Desktop/test_bixtrix24.txt");
+*/
+        //wait.until(ExpectedConditions.visibilityOf(bixtrix24StreamPage.UploadFilesAndImages));
+        //bixtrix24StreamPage.UploadFilesAndImages.click();//sendKeys("/Users/__{{ KoxaL }}__/Desktop/test_bixtrix24.txt");
+    }
+
+    @Then("User should see the file uploaded")
+    public void userShouldSeeTheFileUploaded() {
+        System.out.println("Uploaded");
     }
 }
